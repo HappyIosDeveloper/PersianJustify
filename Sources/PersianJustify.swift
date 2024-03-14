@@ -130,7 +130,7 @@ private extension String {
     
     func isSupportExtender() -> Bool {
         let array = Array(self)
-        if count > 1 {
+        guard count > 1 else { return false }
             for i in stride(from: count-1, to: 0, by: -1) where (i > 0) && i < count {
                 let char = array[i].description
                 let rightChar = array[i-1].description
@@ -139,9 +139,6 @@ private extension String {
                 }
             }
             return false
-        } else {
-            return false
-        }
     }
 }
 
