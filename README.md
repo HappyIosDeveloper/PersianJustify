@@ -16,7 +16,7 @@
 ##### Just download the project and you will be figure it out.
 
 ### Example Project:
-##### [Just download the project and you will be figure it out.](https://github.com/HappyIosDeveloper/PersianJustifyExample)
+##### Just run the project from the Example directory and you will be figure it out.
 
 ### Problems:
 - Not optimized (yet) and consumes a lot of energy.
