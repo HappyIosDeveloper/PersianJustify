@@ -1,6 +1,7 @@
 import XCTest
 @testable import PersianJustify
 
+#if canImport(UIKit)
 final class PersianJustifyTests: XCTestCase {
 
     func testUILabelGetFont() {
@@ -33,3 +34,4 @@ final class PersianJustifyTests: XCTestCase {
         XCTAssertEqual(sut.getFont(), sut.font)
     }
 }
+#endif
