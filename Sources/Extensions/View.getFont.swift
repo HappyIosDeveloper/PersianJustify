@@ -10,20 +10,6 @@ typealias Font = NSFont
 typealias View = NSView
 #endif
 
-#if canImport(UIKit)
-import UIKit
-
-internal extension UIView {
-
-    func getFont() -> UIFont? { value(forKey: "font") as? UIFont }
+internal extension View {
+    func getFont() -> Font? { value(forKey: "font") as? Font }
 }
-#endif
-
-#if canImport(AppKit)
-import AppKit
-
-internal extension NSView {
-
-    func getFont() -> NSFont? { value(forKey: "font") as? NSFont }
-}
-#endif
