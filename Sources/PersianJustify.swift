@@ -158,8 +158,3 @@ private extension [String] {
     }
 }
 
-// MARK: - UIView Extension
-internal extension UIView {
-
-    func getFont() -> UIFont? { value(forKey: "font") as? UIFont }
-}
