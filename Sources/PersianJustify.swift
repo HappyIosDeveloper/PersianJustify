@@ -20,7 +20,7 @@ fileprivate let forbiddenExtendableCharacters = ["ا", "د", "ذ", "ر", "ز", "
 // MARK: - Usage using toPJString function
 extension String {
     
-    public func toPJString(in view: UIView)-> NSAttributedString {
+    public func toPJString(in view: UIView) -> NSAttributedString {
         //        return self // MARK: Uncomment to see the unjustified text
         if isEmpty { return NSAttributedString(string: self) }
         let defaultFont = UIFont()
@@ -53,7 +53,7 @@ extension String {
 // MARK: - Private Functions
 private extension String {
     
-    func getJustifiedLine(in parentWidth: CGFloat, isLastLineInParagraph: Bool, font: UIFont)-> NSMutableAttributedString {
+    func getJustifiedLine(in parentWidth: CGFloat, isLastLineInParagraph: Bool, font: UIFont) -> NSMutableAttributedString {
         let words = getWords(separator: spaceCharacter)
         let totalWordsWidth = words.compactMap({$0.getWordWidth(font: font)}).reduce(0, +)
         let emptySpace = parentWidth - totalWordsWidth
@@ -82,7 +82,7 @@ private extension String {
         }
     }
     
-    func getExtendedWords(words: [String], requiredExtend: CGFloat, font: UIFont)-> NSMutableAttributedString {
+    func getExtendedWords(words: [String], requiredExtend: CGFloat, font: UIFont) -> NSMutableAttributedString {
         print("------------------------------------------")
         let style = NSMutableParagraphStyle()
         style.alignment = NSTextAlignment.justified
@@ -105,15 +105,15 @@ private extension String {
         return predicate.evaluate(with: self)
     }
     
-    func getWords(separator: Character)-> [String] {
+    func getWords(separator: Character) -> [String] {
         return split(separator: separator).compactMap({$0.description})
     }
 
-    func getTotalWidth(in view: UIView)-> CGFloat {
+    func getTotalWidth(in view: UIView) -> CGFloat {
         return view.frame.width
     }
     
-    func getWordWidth(font: UIFont, isRequiredSpace: Bool = true)-> CGFloat {
+    func getWordWidth(font: UIFont, isRequiredSpace: Bool = true) -> CGFloat {
         let text = isRequiredSpace ? (self + spaceCharacter.description) : self
         let attributedString = NSAttributedString(string: text, attributes: [.font: font])
         let line = CTLineCreateWithAttributedString(attributedString)
@@ -124,11 +124,11 @@ private extension String {
         return CGFloat(width)
     }
     
-    func getRange(of word: String)-> NSRange {
+    func getRange(of word: String) -> NSRange {
         return (self as NSString).range(of: word, options: .widthInsensitive)
     }
     
-    func isSupportExtender()-> Bool {
+    func isSupportExtender() -> Bool {
         let array = Array(self)
         if count > 1 {
             for i in stride(from: count-1, to: 0, by: -1) where (i > 0) && i < count {
@@ -153,7 +153,7 @@ private extension [String] {
         return (currentWidth + requiredWidth) <= parentWidth
     }
     
-    func joinWithSpace()-> String {
+    func joinWithSpace() -> String {
         return joined(separator: spaceCharacter.description)
     }
 }
