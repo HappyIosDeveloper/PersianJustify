@@ -2,7 +2,7 @@ import XCTest
 @testable import PersianJustify
 
 #if canImport(UIKit)
-final class PersianJustifyTests: XCTestCase {
+final class GetFontTests: XCTestCase {
 
     func testUILabelGetFont() {
         let sut = UILabel()
@@ -42,7 +42,7 @@ final class PersianJustifyTests: XCTestCase {
 #endif
 
 #if canImport(AppKit)
-final class PersianJustifyTests: XCTestCase {
+final class GetFontTests: XCTestCase {
 
     // There is no such a thing as `NSLabel` in the `AppKit`
 
