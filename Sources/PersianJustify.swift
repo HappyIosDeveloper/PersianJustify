@@ -131,14 +131,14 @@ private extension String {
     func isSupportExtender() -> Bool {
         let array = Array(self)
         guard count > 1 else { return false }
-            for i in stride(from: count-1, to: 0, by: -1) where (i > 0) && i < count {
-                let char = array[i].description
-                let rightChar = array[i-1].description
-                if !forbiddenExtendableCharacters.contains(rightChar) && rightChar.isArabic && char.isArabic {
-                    return true
-                }
+        for i in stride(from: count-1, to: 0, by: -1) where (i > 0) && i < count {
+            let char = array[i].description
+            let rightChar = array[i-1].description
+            if !forbiddenExtendableCharacters.contains(rightChar) && rightChar.isArabic && char.isArabic {
+                return true
             }
-            return false
+        }
+        return false
     }
 }
 
