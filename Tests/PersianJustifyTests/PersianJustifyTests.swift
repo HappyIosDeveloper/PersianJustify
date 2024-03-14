@@ -35,3 +35,30 @@ final class PersianJustifyTests: XCTestCase {
     }
 }
 #endif
+
+#if canImport(AppKit)
+final class PersianJustifyTests: XCTestCase {
+
+    // There is no such a thing as `NSLabel` in the `AppKit`
+
+    func testNSTextFieldGetFont() {
+        let sut = NSTextField()
+        let expFont = NSFont.systemFont(ofSize: 100)
+        sut.font = expFont
+
+        XCTAssertEqual(sut.font, expFont)
+        XCTAssertEqual(sut.getFont(), expFont)
+        XCTAssertEqual(sut.getFont(), sut.font)
+    }
+
+    func testUITextViewGetFont() {
+        let sut = NSTextView()
+        let expFont = NSFont.systemFont(ofSize: 100)
+        sut.font = expFont
+
+        XCTAssertEqual(sut.font, expFont)
+        XCTAssertEqual(sut.getFont(), expFont)
+        XCTAssertEqual(sut.getFont(), sut.font)
+    }
+}
+#endif
