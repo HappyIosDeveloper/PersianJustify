@@ -19,10 +19,10 @@
 ##### [Just download the project and you will be figure it out.](https://github.com/HappyIosDeveloper/PersianJustifyExample)
 
 ### Problems:
-- It not oprimized yet and takes alot of energy to work.
+- It not optimized yet and takes a lot of energy to work.
 - There is some weird UI issues in text with some fonts.
 - I don't know if it works well with all Hebrew languages.
 - It needs the unit tests.
 
 ### PS:
-#### I accept the helps to fix the bugs and improve the functinality with open arms.
+#### I accept the helps to fix the bugs and improve the functionality with open arms.
