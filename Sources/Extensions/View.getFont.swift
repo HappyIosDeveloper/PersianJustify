@@ -11,5 +11,9 @@ typealias View = NSView
 #endif
 
 internal extension View {
-    func getFont() -> Font? { value(forKey: "font") as? Font }
+    func getFont() -> Font? { 
+        let key = "font"
+        guard responds(to: Selector(key)) else { return nil }
+        return value(forKey: key) as? Font
+    }
 }
