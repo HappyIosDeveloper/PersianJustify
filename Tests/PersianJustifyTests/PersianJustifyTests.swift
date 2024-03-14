@@ -33,6 +33,11 @@ final class PersianJustifyTests: XCTestCase {
         XCTAssertEqual(sut.getFont(), expFont)
         XCTAssertEqual(sut.getFont(), sut.font)
     }
+
+    func testUIViewGetFont() {
+        let sut = UIView()
+        XCTAssertNil(sut.getFont())
+    }
 }
 #endif
 
