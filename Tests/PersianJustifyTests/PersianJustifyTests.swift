@@ -2,11 +2,14 @@ import XCTest
 @testable import PersianJustify
 
 final class PersianJustifyTests: XCTestCase {
-    func testExample() throws {
-        // XCTest Documentation
-        // https://developer.apple.com/documentation/xctest
+    
+    func testUILabelGetFont() {
+        let sut = UILabel()
+        let expFont = UIFont.systemFont(ofSize: 100)
+        sut.font = expFont
 
-        // Defining Test Cases and Test Methods
-        // https://developer.apple.com/documentation/xctest/defining_test_cases_and_test_methods
+        XCTAssertEqual(sut.font, expFont)
+        XCTAssertEqual(sut.getFont(), expFont)
+        XCTAssertEqual(sut.getFont(), sut.font)
     }
 }
