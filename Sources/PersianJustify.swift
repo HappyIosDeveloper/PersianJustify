@@ -158,8 +158,8 @@ private extension [String] {
 }
 
 // MARK: - UIView Extension
-private extension UIView {
-        
+internal extension UIView {
+
     func getFont()-> UIFont {
         let defaultFont = UIFont()
         if let label = self as? UILabel {
