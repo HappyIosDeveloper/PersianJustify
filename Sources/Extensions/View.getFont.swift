@@ -2,9 +2,7 @@
 import UIKit
 public typealias Font = UIFont
 public typealias View = UIView
-#endif
-
-#if canImport(AppKit)
+#elseif canImport(AppKit)
 import AppKit
 public typealias Font = NSFont
 public typealias View = NSView
