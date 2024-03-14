@@ -163,14 +163,14 @@ internal extension UIView {
     func getFont() -> UIFont {
         let defaultFont = UIFont()
         var viewFont: UIFont? {
-            if let label = self as? UILabel {
-                return label.font
+            return if let label = self as? UILabel {
+                label.font
             } else if let textView = self as? UITextView {
-                return textView.font
+                textView.font
             } else if let textField = self as? UITextField {
-                return textField.font
+                textField.font
             } else {
-                return nil
+                nil
             }
         }
 
