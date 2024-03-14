@@ -5,7 +5,12 @@
 //  Created by Ahmadreza on 3/14/24.
 //
 
+#if canImport(UIKit)
 import UIKit
+#elseif canImport(AppKit)
+import AppKit
+#endif
+
 import CoreText
 
 // MARK: - Variables
