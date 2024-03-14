@@ -161,15 +161,5 @@ private extension [String] {
 // MARK: - UIView Extension
 internal extension UIView {
 
-    func getFont() -> UIFont? {
-        if let label = self as? UILabel {
-            label.font
-        } else if let textView = self as? UITextView {
-            textView.font
-        } else if let textField = self as? UITextField {
-            textField.font
-        } else {
-            nil
-        }
-    }
+    func getFont() -> UIFont? { value(forKey: "font") as? UIFont }
 }
