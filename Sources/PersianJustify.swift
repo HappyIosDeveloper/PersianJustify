@@ -23,7 +23,8 @@ extension String {
     public func toPJString(in view: UIView)-> NSAttributedString {
         //        return self // MARK: Uncomment to see the unjustified text
         if isEmpty { return NSAttributedString(string: self) }
-        let font = view.getFont()
+        let defaultFont = UIFont()
+        let font = view.getFont() ?? defaultFont
         let final = NSMutableAttributedString(string: "")
         let allLines = replacingOccurrences(of: "\n\n", with: nextLineCharacter.description).getWords(separator: nextLineCharacter)
         let parentWidth = getTotalWidth(in: view)
@@ -157,18 +158,3 @@ private extension [String] {
     }
 }
 
-// MARK: - UIView Extension
-private extension UIView {
-        
-    func getFont()-> UIFont {
-        let defaultFont = UIFont()
-        if let label = self as? UILabel {
-            return label.font
-        } else if let textView = self as? UITextView {
-            return textView.font ?? defaultFont
-        } else if let textField = self as? UITextField {
-            return textField.font ?? defaultFont
-        }
-        return defaultFont
-    }
-}
