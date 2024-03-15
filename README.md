@@ -16,13 +16,13 @@
 ##### Just download the project and you will be figure it out.
 
 ### Example Project:
-##### [Just download the project and you will be figure it out.](https://github.com/HappyIosDeveloper/PersianJustifyExample)
+##### Just run the project from the Example directory and you will be figure it out.
 
 ### Problems:
-- It not oprimized yet and takes alot of energy to work.
-- There is some weird UI issues in text with some fonts.
-- I don't know if it works well with all Hebrew languages.
-- It needs the unit tests.
+- Not optimized (yet) and consumes a lot of energy.
+- Some weird UI issues in text with some fonts.
+- Not tested with all Hebrew languages.
+- It needs more tests.
 
 ### PS:
-#### I accept the helps to fix the bugs and improve the functinality with open arms.
+#### I accept the helps to fix the bugs and improve the functionality with open arms.

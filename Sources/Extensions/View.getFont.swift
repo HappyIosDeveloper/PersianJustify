@@ -1,13 +1,11 @@
 #if canImport(UIKit)
 import UIKit
-typealias Font = UIFont
-typealias View = UIView
-#endif
-
-#if canImport(AppKit)
+public typealias Font = UIFont
+public typealias View = UIView
+#elseif canImport(AppKit)
 import AppKit
-typealias Font = NSFont
-typealias View = NSView
+public typealias Font = NSFont
+public typealias View = NSView
 #endif
 
 internal extension View {
