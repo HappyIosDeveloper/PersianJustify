@@ -26,5 +26,28 @@ final class MainFunctionalityTests: XCTestCase {
         sut.attributedText = text3.toPJString(in: sut)
         XCTAssertEqual(sut.attributedText?.string.count, text3.count)
     }
+    
+    func testMainFunctionIsGettingExactNextLineCharacter() {
+        let noEnter = "a"
+        let twoEnters = "a\na"
+        let threeEnters = "a\na\na\na"
+        
+        let sut = UILabel()
+        sut.attributedText = noEnter.toPJString(in: sut)
+        XCTAssertEqual(sut.attributedText?.string.getNextLineCount(), noEnter.getNextLineCount())
+        
+        sut.attributedText = twoEnters.toPJString(in: sut)
+        XCTAssertEqual(sut.attributedText?.string.getNextLineCount(), twoEnters.getNextLineCount())
+        
+        sut.attributedText = threeEnters.toPJString(in: sut)
+        XCTAssertEqual(sut.attributedText?.string.getNextLineCount(), threeEnters.getNextLineCount())
+    }
 }
 #endif
+
+private extension String {
+    
+    func getNextLineCount()-> Int {
+        return filter({$0 == "\n"}).count
+    }
+}
