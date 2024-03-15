@@ -34,6 +34,9 @@ yourLabel.attributedText = yourText.toPJString(in: yourLabel)
 #### PS:
 ##### I accept the helps to fix the bugs and improve the functionality with open arms.
 
+### Credits:
+I'm very thankful to my dear brother and teacher [MR.Mojtaba Hosseini](https://github.com/MojtabaHs) to be a big part of this.'
+<img src="Previews/founders.jpg" alt="Image 1">
 
 ### License:
 PersianJustify is released under the MIT license. See [LICENSE](https://github.com/HappyIosDeveloper/PersianJustify/blob/main/LICENSE) for details. 
