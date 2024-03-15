@@ -9,8 +9,8 @@
 <img src="https://img.shields.io/badge/Swift_Package_Manager-compatible-green?style=flat-square"><img src="https://img.shields.io/badge/Platforms-macOS_iOS_tvOS-Green?style=flat-square">
 | ⬇️ | ⬇️ |
 | --- | --- |
-|<img src="Previews/custom_font_1_preview.jpg" align="center height="650" width="300">|<img src="Previews/original_font_preview.jpg" align="center height="650" width="300">|
-|<img src="Previews/custom_font_3_preview.jpg" align="center height="650" width="300">|<img src="Previews/custom_font_2_preview.jpg" align="center height="650" width="300">|
+|<img src="Previews/custom_font_1_preview.jpg" height="650" width="300">|<img src="Previews/original_font_preview.jpg" height="650" width="300">|
+|<img src="Previews/custom_font_3_preview.jpg" height="650" width="300">|<img src="Previews/custom_font_2_preview.jpg" height="650" width="300">|
 
 ### Usage:
 ##### ✅ Add PersianJustify using SPM
