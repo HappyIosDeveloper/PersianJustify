@@ -9,21 +9,21 @@
 <img src="https://img.shields.io/badge/Swift_Package_Manager-compatible-green?style=flat-square"><img src="https://img.shields.io/badge/Platforms-macOS_iOS_tvOS-Green?style=flat-square">
 | ⬇️ | ⬇️ |
 | --- | --- |
-|<img src="Previews/custom_font_1_preview.jpg" alt="Image 1">|<img src="Previews/original_font_preview.jpg" alt="Image 1">|
-|<img src="Previews/custom_font_3_preview.jpg" alt="Image 1">|<img src="Previews/custom_font_2_preview.jpg" alt="Image 1">|
+|<img src="Previews/custom_font_1_preview.jpg" align="center height="650" width="300">|<img src="Previews/original_font_preview.jpg" align="center height="650" width="300">|
+|<img src="Previews/custom_font_3_preview.jpg" align="center height="650" width="300">|<img src="Previews/custom_font_2_preview.jpg" align="center height="650" width="300">|
 
 ### Usage:
 ##### ✅ Add PersianJustify using SPM
 ##### ✅ Import PersianJustify in your class and use it like so:
 ```ruby
 yourLabel.numberOfLines = 0
-yourLabel.attributedText = yourText.toPIString(in: yourLabel)
+yourLabel.attributedText = yourText.toPJString(in: yourLabel)
 ```
 
 
 ### Example Project:
 <img src="Previews/example.jpg" alt="Image 1">
-##### Navigate to the "Example" folder with finder and open the example project while the main project is not open in XCode.
+#### Navigate to the "Example" folder with finder and open the example project while the main project is not open in XCode.
 
 ### Problems:
 - Not optimized (yet) and consumes a lot of energy.
