@@ -39,7 +39,6 @@
 		0BFFF9E82B809FC20088D24F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BFFF9EA2B809FC20088D24F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BFFF9F42B80E5350088D24F /* UILabelExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtensions.swift; sourceTree = "<group>"; };
-		2ADC90A72BA3731500E26B51 /* PersianJustify */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PersianJustify; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +69,6 @@
 		0BFFF9D02B809FC10088D24F = {
 			isa = PBXGroup;
 			children = (
-				2ADC90A72BA3731500E26B51 /* PersianJustify */,
 				0BFFF9DB2B809FC10088D24F /* perian_justify_example */,
 				0BFFF9DA2B809FC10088D24F /* Products */,
 			);
@@ -426,7 +424,7 @@
 			repositoryURL = "https://github.com/HappyIosDeveloper/PersianJustify";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 0.3.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
