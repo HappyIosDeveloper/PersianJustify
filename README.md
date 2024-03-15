@@ -9,8 +9,8 @@
 <img src="https://img.shields.io/badge/Swift_Package_Manager-compatible-green?style=flat-square"><img src="https://img.shields.io/badge/Platforms-macOS_iOS_tvOS-Green?style=flat-square">
 | ⬇️ | ⬇️ |
 | --- | --- |
-|<img src="Previews/custom_font_1_preview.jpg" width="80%" height="80%" alt="Image 1">|<img width="80%" height="80%" src="Previews/original_font_preview.jpg" alt="Image 1">|
-|<img src="Previews/custom_font_3_preview.jpg" width="80%" height="80%" alt="Image 1">|<img width="80%" height="80%" src="Previews/custom_font_2_preview.jpg" alt="Image 1">|
+|<img src="Previews/custom_font_1_preview.jpg" alt="Image 1">|<img src="Previews/original_font_preview.jpg" alt="Image 1">|
+|<img src="Previews/custom_font_3_preview.jpg" alt="Image 1">|<img src="Previews/custom_font_2_preview.jpg" alt="Image 1">|
 
 ### Usage:
 ##### ✅ Add PersianJustify using SPM
@@ -19,6 +19,7 @@
 yourLabel.numberOfLines = 0
 yourLabel.attributedText = yourText.toPIString(in: yourLabel)
 ```
+
 
 ### Example Project:
 <img src="Previews/example.jpg" alt="Image 1">
@@ -35,5 +36,4 @@ yourLabel.attributedText = yourText.toPIString(in: yourLabel)
 
 
 ### License:
-PersianJustify is released under the MIT license. See [LICENSE] for details. 
-[LICENSE]:https://github.com/HappyIosDeveloper/PersianJustify/blob/main/LICENSE
+PersianJustify is released under the MIT license. See [LICENSE](https://github.com/HappyIosDeveloper/PersianJustify/blob/main/LICENSE) for details. 
