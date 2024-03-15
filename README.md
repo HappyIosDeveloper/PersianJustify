@@ -16,7 +16,8 @@
 ##### Just download the project and you will be figure it out.
 
 ### Example Project:
-##### Just run the project from the Example directory and you will be figure it out.
+<img src="Previews/example.jpg" alt="Image 1">
+##### Navigate to the "Example" folder with finder and open the example project while the main project is not open in XCode.
 
 ### Problems:
 - Not optimized (yet) and consumes a lot of energy.
