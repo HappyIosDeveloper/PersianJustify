@@ -35,4 +35,5 @@ yourLabel.attributedText = yourText.toPIString(in: yourLabel)
 
 
 ### License:
-PersianJustify is released under the MIT license. See [LICENSE](https://github.com/HappyIosDeveloper/PersianJustify/blob/main/LICENSE) for details. 
+PersianJustify is released under the MIT license. See [LICENSE] for details. 
+[LICENSE]:https://github.com/HappyIosDeveloper/PersianJustify/blob/main/LICENSE
