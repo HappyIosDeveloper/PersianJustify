@@ -42,6 +42,22 @@ final class MainFunctionalityTests: XCTestCase {
         sut.attributedText = threeEnters.toPJString(in: sut)
         XCTAssertEqual(sut.attributedText?.string.getNextLineCount(), threeEnters.getNextLineCount())
     }
+    
+    func testMainFunctionIsGettingExactSpaceCharacter() {
+        let noSpace = "a"
+        let twoSpaces = "a a"
+        let threeSpaces = "a a a a"
+        
+        let sut = UILabel()
+        sut.attributedText = noSpace.toPJString(in: sut)
+        XCTAssertEqual(sut.attributedText?.string.getSpaceCount(), noSpace.getSpaceCount())
+        
+        sut.attributedText = twoSpaces.toPJString(in: sut)
+        XCTAssertEqual(sut.attributedText?.string.getSpaceCount(), twoSpaces.getSpaceCount())
+        
+        sut.attributedText = threeSpaces.toPJString(in: sut)
+        XCTAssertEqual(sut.attributedText?.string.getSpaceCount(), threeSpaces.getSpaceCount())
+    }
 }
 #endif
 
@@ -49,5 +65,9 @@ private extension String {
     
     func getNextLineCount()-> Int {
         return filter({$0 == "\n"}).count
+    }
+    
+    func getSpaceCount()-> Int {
+        return filter({$0 == " "}).count
     }
 }
