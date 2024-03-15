@@ -12,6 +12,7 @@
 |<img src="Previews/custom_font_1_preview.jpg" height="650" width="300">|<img src="Previews/original_font_preview.jpg" height="650" width="300">|
 |<img src="Previews/custom_font_3_preview.jpg" height="650" width="300">|<img src="Previews/custom_font_2_preview.jpg" height="650" width="300">|
 
+
 ### Usage:
 ##### ✅ Add PersianJustify using SPM
 ##### ✅ Import PersianJustify in your class and use it like so:
@@ -25,18 +26,23 @@ yourLabel.attributedText = yourText.toPJString(in: yourLabel)
 <img src="Previews/example.jpg" alt="Image 1">
 Navigate to the "Example" folder with finder and open the example project while the main project is not open in XCode.
 
+
+
 ### Problems:
 - Not optimized (yet) and consumes a lot of energy.
 - Some weird UI issues in text with some fonts.
 - Not tested with all Hebrew languages.
 - It needs more tests.
 
+
 #### PS:
 ##### I accept the helps to fix the bugs and improve the functionality with open arms.
 
+
 ### Credits:
 I'm very thankful to my dear brother and teacher [MR.Mojtaba Hosseini](https://github.com/MojtabaHs) to be a big part of this.'
-<img src="Previews/founders.jpg" alt="Image 1">
+<img src="Previews/founders.jpg" height="165" width="400">
+
 
 ### License:
 PersianJustify is released under the MIT license. See [LICENSE](https://github.com/HappyIosDeveloper/PersianJustify/blob/main/LICENSE) for details. 
