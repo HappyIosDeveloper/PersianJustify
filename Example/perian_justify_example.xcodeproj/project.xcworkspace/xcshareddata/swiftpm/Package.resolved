@@ -1,0 +1,15 @@
+{
+  "originHash" : "a3510e27242cfd4d5e1fce3ce0f52d9f9523f6630c83c36dbfd5fde858554755",
+  "pins" : [
+    {
+      "identity" : "persianjustify",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/HappyIosDeveloper/PersianJustify",
+      "state" : {
+        "revision" : "e49d34a87fe62ce9ee478cf9e063310370be5d0c",
+        "version" : "0.3.0"
+      }
+    }
+  ],
+  "version" : 3
+}
