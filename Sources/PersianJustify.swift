@@ -26,15 +26,17 @@ fileprivate let forbiddenExtendableCharacters = ["ا", "د", "ذ", "ر", "ز", "
 extension String {
     
     public func toPJString(in view: View) -> NSAttributedString {
-        //        return self // MARK: Uncomment to see the unjustified text
-        if isEmpty { return NSAttributedString(string: self) }
+        let defaultAttributedTest = NSAttributedString(string: self)
+        //                return defaultAttributedTest // MARK: Uncomment to see the unjustified text
+        if isEmpty { return defaultAttributedTest }
         let defaultFont = Font()
         let font = view.getFont() ?? defaultFont
         let final = NSMutableAttributedString(string: "")
-        let allLines = replacingOccurrences(of: "\n\n", with: nextLineCharacter.description).getWords(separator: nextLineCharacter)
+        let doubleNextLine = nextLineCharacter.description + nextLineCharacter.description
+        let allLines = replacingOccurrences(of:doubleNextLine, with: nextLineCharacter.description).getWords(separator: nextLineCharacter)
         let parentWidth = getTotalWidth(in: view)
-        for line in allLines {
-            let words = line.split(separator: spaceCharacter).compactMap({$0.description})
+        for i in 0..<allLines.count {
+            let words = allLines[i].split(separator: spaceCharacter).compactMap({$0.description})
             var currentLineWords: [String] = []
             for i in 0..<words.count {
                 if currentLineWords.hasRoomForNextWord(nextWord: words[i], parentWidth: parentWidth, font: font) || currentLineWords.isEmpty {
@@ -49,7 +51,9 @@ extension String {
             if !currentLineWords.isEmpty {
                 final.append(currentLineWords.joinWithSpace().getJustifiedLine(in: parentWidth, isLastLineInParagraph: true, font: font))
             }
-            final.append(attributedNextLine)
+            if i < allLines.count-1 { // MARK: To void add extra next line at the end of text
+                final.append(attributedNextLine)
+            }
         }
         return final
     }
