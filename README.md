@@ -23,7 +23,7 @@ yourLabel.attributedText = yourText.toPJString(in: yourLabel)
 
 ### Example Project:
 <img src="Previews/example.jpg" alt="Image 1">
-#### Navigate to the "Example" folder with finder and open the example project while the main project is not open in XCode.
+Navigate to the "Example" folder with finder and open the example project while the main project is not open in XCode.
 
 ### Problems:
 - Not optimized (yet) and consumes a lot of energy.
