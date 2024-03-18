@@ -11,17 +11,6 @@ import UIKit
 import AppKit
 #endif
 
-import CoreText
-
-// MARK: - Variables
-fileprivate let nextLineCharacter: Character = "\n"
-fileprivate let spaceCharacter: Character = " "
-fileprivate let miniSpaceCharacter: Character = "‌"
-fileprivate let extenderCharacter: Character = "ـ" // Persian underline
-fileprivate let attributedSpace = NSAttributedString(string: spaceCharacter.description)
-fileprivate let attributedNextLine = NSMutableAttributedString(string: nextLineCharacter.description)
-fileprivate let forbiddenExtendableCharacters = ["ا", "د", "ذ", "ر", "ز", "و", "آ", "ژ"]
-
 // MARK: - Usage using toPJString function
 extension String {
     
