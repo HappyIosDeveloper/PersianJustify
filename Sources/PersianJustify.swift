@@ -90,37 +90,8 @@ extension String {
                     isLastLineInParagraph: true
                 )
 
-// MARK: - Private Functions
-private extension String {
-    
-    func getJustifiedLine(in parentWidth: CGFloat, isLastLineInParagraph: Bool, font: Font) -> NSMutableAttributedString {
-        let words = getWords(separator: spaceCharacter)
-        let totalWordsWidth = words.compactMap({$0.getWordWidth(font: font)}).reduce(0, +)
-        let emptySpace = parentWidth - totalWordsWidth
-        let singleExtenderWidth = extenderCharacter.description.getWordWidth(font: font, isRequiredSpace: false)
-        let requiredExtender = Swift.max((emptySpace / singleExtenderWidth), 0)
-        let supportedExtenderWords = words.filter({$0.isSupportExtender()})
-        print("words: ", self)
-        print("parent width: \(parentWidth)")
-        print("totalWordsWidth \(totalWordsWidth)")
-        print("emptySpace: \(emptySpace)")
-        if isLastLineInParagraph { // MARK: May not required justify.
-            return .init(attributedString: NSAttributedString(string: self))
-        } else {
-            let isManyExtendersRequired = CGFloat(supportedExtenderWords.count) < requiredExtender
-            if isManyExtendersRequired {
-                print("many extenders required")
-                let requiredExtend = emptySpace / CGFloat(supportedExtenderWords.count)
-                return getExtendedWords(words: supportedExtenderWords, requiredExtend: requiredExtend * 0.2, font: font)
-            } else if requiredExtender > 0 && supportedExtenderWords.count > 0 {
-                print("little extenders required")
-                return getExtendedWords(words: supportedExtenderWords, requiredExtend: max(requiredExtender * 0.1, 0), font: font)
-            } else {
-                print("no extender added")
-                return NSMutableAttributedString(attributedString: NSAttributedString(string: self))
+                final.append(extracted)
             }
-        }
-    }
     
     func getExtendedWords(words: [String], requiredExtend: CGFloat, font: Font) -> NSMutableAttributedString {
         print("------------------------------------------")
