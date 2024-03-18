@@ -25,6 +25,16 @@ extension String {
             .split(separator: NewLine._character)
             .map { Line($0) }
     }
+
+    private func replaceDoubleEmptyLines() -> String {
+        let doubleNextLine = NewLine() + NewLine()
+
+        // Replacing double empty lines with one empty line
+        return replacingOccurrences(
+            of: doubleNextLine,
+            with: NewLine()
+        )
+    }
         let final = NSMutableAttributedString(string: "")
         let doubleNextLine = nextLineCharacter.description + nextLineCharacter.description
         let allLines = replacingOccurrences(of:doubleNextLine, with: nextLineCharacter.description).getWords(separator: nextLineCharacter)
