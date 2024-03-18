@@ -99,12 +99,7 @@ extension String {
             }
         }
 
-private extension [String] {
-    
-    func hasRoomForNextWord(nextWord: String, parentWidth: CGFloat, font: Font) -> Bool {
-        let requiredWidth = nextWord.getWordWidth(font: font)
-        let currentWidth = compactMap({$0.getWordWidth(font: font)}).reduce(0, +)
-        return (currentWidth + requiredWidth) <= parentWidth
+        return final
     }
     
     func joinWithSpace() -> String {
