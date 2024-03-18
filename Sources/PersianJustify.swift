@@ -35,17 +35,17 @@ extension String {
 
     private func splitStringToLines() -> [Line] {
         replaceDoubleEmptyLines()
-            .split(separator: NewLine._character)
+            .splitWithLineSeparator()
             .map { Line($0) }
     }
 
     private func replaceDoubleEmptyLines() -> String {
-        let doubleNextLine = NewLine() + NewLine()
+        let doubleNextLine = LineBreakCharacter() + LineBreakCharacter()
 
         // Replacing double empty lines with one empty line
         return replacingOccurrences(
             of: doubleNextLine,
-            with: NewLine()
+            with: LineBreakCharacter()
         )
     }
 
@@ -108,7 +108,7 @@ extension String {
 
             // To avoid add extra next line at the end of text
             if index < lines.count-1 {
-                final.append(NewLine.attributedStringRepresentation)
+                final.append(LineBreakCharacter.attributedStringRepresentation)
             }
         }
 
