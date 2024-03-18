@@ -93,24 +93,6 @@ extension String {
                 final.append(extracted)
             }
     
-    func getExtendedWords(words: [String], requiredExtend: CGFloat, font: Font) -> NSMutableAttributedString {
-        print("------------------------------------------")
-        let style = NSMutableParagraphStyle()
-        style.alignment = NSTextAlignment.justified
-        style.baseWritingDirection = .rightToLeft
-        let totalRange = NSRange(location: 0, length: self.utf16.count)
-        let attributedText = NSMutableAttributedString(string: self)
-        attributedText.setAttributes([NSAttributedString.Key.font: font], range: totalRange)
-        for word in words {
-            let range = getRange(of: word)
-            attributedText.addAttribute(NSAttributedString.Key.kern, value: requiredExtend, range: range)
-            attributedText.addAttributes([NSAttributedString.Key.paragraphStyle: style], range: range)
-            print("applying extend | \(requiredExtend) to \(word)")
-        }
-        print("------------------------------------------")
-        return attributedText
-    }
-    
     var isArabic: Bool {
         let predicate = NSPredicate(format: "SELF MATCHES %@", "(?s).*\\p{Arabic}.*")
         return predicate.evaluate(with: self)
