@@ -101,6 +101,19 @@ extension String {
 
         return final
     }
+
+    private func justifyLine(
+        from words: [Word],
+        in proposedWidth: CGFloat,
+        with font: Font,
+        isLastLineInParagraph: Bool
+    ) -> NSMutableAttributedString {
+        words
+            .createLineFromWords()
+            .justify(
+                in: proposedWidth,
+                isLastLineInParagraph: isLastLineInParagraph,
+                font: font
+            )
     }
 }
-
