@@ -27,7 +27,7 @@ struct Line {
 
     /// Get every word in a line.
     func getWords() -> [Word] {
-        splitLineIntoWords()
+        _line.splitWithSpaceSeparator()
             .map { Word($0) }
     }
 
@@ -78,10 +78,6 @@ struct Line {
                 font: font
             )
         }
-    }
-
-    private func splitLineIntoWords() -> [Substring] {
-        _line.split(separator: SpaceCharacter.character)
     }
 
     private func getExtendedWords(
