@@ -93,9 +93,6 @@ extension String {
                 final.append(extracted)
             }
 
-    func getTotalWidth(in view: View) -> CGFloat {
-        return view.frame.width
-    }
     
     func getWordWidth(font: Font, isRequiredSpace: Bool = true) -> CGFloat {
         let text = isRequiredSpace ? (self + spaceCharacter.description) : self
