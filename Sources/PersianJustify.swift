@@ -93,11 +93,6 @@ extension String {
                 final.append(extracted)
             }
     
-    var isArabic: Bool {
-        let predicate = NSPredicate(format: "SELF MATCHES %@", "(?s).*\\p{Arabic}.*")
-        return predicate.evaluate(with: self)
-    }
-    
     func getWords(separator: Character) -> [String] {
         return split(separator: separator).compactMap({$0.description})
     }
