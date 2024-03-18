@@ -92,10 +92,6 @@ extension String {
 
                 final.append(extracted)
             }
-    
-    func getWords(separator: Character) -> [String] {
-        return split(separator: separator).compactMap({$0.description})
-    }
 
     func getTotalWidth(in view: View) -> CGFloat {
         return view.frame.width
