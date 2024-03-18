@@ -2,10 +2,10 @@ import Foundation
 
 /// Wrapper around a character which is used to append a space.
 struct SpaceCharacter {
-    /*private*/ static let character: Character = " "
+    fileprivate static let _character: Character = " "
 
     static var stringRepresentation: String {
-        String(Self.character)
+        String(Self._character)
     }
 
     static var attributedStringRepresentation: NSAttributedString {
@@ -20,5 +20,11 @@ struct SpaceCharacter {
 extension NSMutableAttributedString {
     func appendSpaceCharacter() {
         append(SpaceCharacter.attributedStringRepresentation)
+    }
+}
+
+extension String.SubSequence {
+    func splitWithSpaceSeparator() -> [Substring] {
+        split(separator: SpaceCharacter._character)
     }
 }
