@@ -1,0 +1,20 @@
+import XCTest
+
+#if canImport(UIKit)
+final class MeasurementTests: XCTestCase {
+    func testPerformance() throws {
+        self.measure(metrics: [XCTCPUMetric(), XCTMemoryMetric()]) {
+            let text1 = ""
+            let text2 = "blah blah"
+            let text3 = "السلام اللعیکم\nو رحمت الله و برکاتو"
+
+            let sut = UILabel()
+            sut.attributedText = text1.toPJString(in: sut)
+
+            sut.attributedText = text2.toPJString(in: sut)
+
+            sut.attributedText = text3.toPJString(in: sut)
+        }
+    }
+}
+#endif
