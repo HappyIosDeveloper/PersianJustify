@@ -35,33 +35,60 @@ extension String {
             with: NewLine()
         )
     }
+
+    private func justify(
+        _ lines: [Line],
+        in proposedWidth: CGFloat,
+        with font: Font
+    ) -> NSAttributedString {
         let final = NSMutableAttributedString(string: "")
-        let doubleNextLine = nextLineCharacter.description + nextLineCharacter.description
-        let allLines = replacingOccurrences(of:doubleNextLine, with: nextLineCharacter.description).getWords(separator: nextLineCharacter)
-        let parentWidth = getTotalWidth(in: view)
-        for i in 0..<allLines.count {
-            let words = allLines[i].split(separator: spaceCharacter).compactMap({$0.description})
-            var currentLineWords: [String] = []
-            for i in 0..<words.count {
-                if currentLineWords.hasRoomForNextWord(nextWord: words[i], parentWidth: parentWidth, font: font) || currentLineWords.isEmpty {
-                    currentLineWords.append(words[i])
-                } else { // MARK: line is filled and is ready to justify
-                    let justifiedLine = currentLineWords.joinWithSpace().getJustifiedLine(in: parentWidth, isLastLineInParagraph: false, font: font)
-                    justifiedLine.append(attributedSpace)
+
+        lines.enumerated().forEach { index, line in
+            let words = line.getWords()
+
+            var currentLineWords: [Word] = []
+
+            words.forEach { word in
+                let canAddNewWord: Bool = {
+                    let lineHasRoomForNextWord = currentLineWords.hasRoomForNextWord(
+                        nextWord: word,
+                        parentWidth: proposedWidth,
+                        font: font
+                    )
+
+                    lazy var isLineEmpty = currentLineWords.isEmpty
+
+                    return lineHasRoomForNextWord || isLineEmpty
+                }()
+
+                if canAddNewWord {
+                    currentLineWords.append(word)
+                } 
+                // Line is filled and is ready to justify
+                else {
+                    let justifiedLine = justifyLine(
+                        from: currentLineWords,
+                        in: proposedWidth,
+                        with: font,
+                        isLastLineInParagraph: false
+                    )
+
+                    // Appending space at the end
+                    justifiedLine.appendSpaceCharacter()
+
                     final.append(justifiedLine)
-                    currentLineWords = [words[i]]
+
+                    currentLineWords = [word]
                 }
             }
+
             if !currentLineWords.isEmpty {
-                final.append(currentLineWords.joinWithSpace().getJustifiedLine(in: parentWidth, isLastLineInParagraph: true, font: font))
-            }
-            if i < allLines.count-1 { // MARK: To void add extra next line at the end of text
-                final.append(attributedNextLine)
-            }
-        }
-        return final
-    }
-}
+                let extracted = justifyLine(
+                    from: currentLineWords,
+                    in: proposedWidth,
+                    with: font,
+                    isLastLineInParagraph: true
+                )
 
 // MARK: - Private Functions
 private extension String {
