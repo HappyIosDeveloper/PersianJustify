@@ -83,20 +83,3 @@ extension [Word] {
         return Line(joinedWords)
     }
 }
-
-extension [Word] {
-    /// Method that will determine if a given word can fit inside the line based on proposed width.
-    func hasRoomForNextWord(nextWord: Word, proposedWidth: CGFloat, font: Font) -> Bool {
-        let requiredWidth = nextWord.getWordWidth(font: font)
-        let currentWidth = getRequiredWidth(with: font)
-        return (currentWidth + requiredWidth) <= proposedWidth
-    }
-}
-
-extension [Word] {
-    /// Method that will calculate required width for words.
-    func getRequiredWidth(with font: Font) -> CGFloat {
-        map { $0.getWordWidth(font: font) }
-            .reduce(0, +)
-    }
-}

@@ -4,7 +4,7 @@ import Foundation
 struct MiniSpaceCharacter {
     private static let _character: Character = "‌"
 
-    private static var stringRepresentation: String {
+    static var stringRepresentation: String {
         String(Self._character)
     }
 
