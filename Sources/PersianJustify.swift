@@ -93,20 +93,11 @@ extension String {
                 final.append(extracted)
             }
 
-    
-    func isSupportExtender() -> Bool {
-        guard count > 1 else { return false }
-        let array = Array(self)
-        for i in stride(from: count-1, to: 0, by: -1) where (i > 0) && i < count {
-            let char = array[i].description
-            let rightChar = array[i-1].description
-            if !forbiddenExtendableCharacters.contains(rightChar) && rightChar.isArabic && char.isArabic {
-                return true
+            // To avoid add extra next line at the end of text
+            if index < lines.count-1 {
+                final.append(NewLine.attributedStringRepresentation)
             }
         }
-        return false
-    }
-}
 
 private extension [String] {
     
