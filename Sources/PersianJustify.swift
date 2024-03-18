@@ -20,6 +20,11 @@ extension String {
         if isEmpty { return defaultAttributedTest }
         let defaultFont = Font()
         let font = view.getFont() ?? defaultFont
+    private func splitStringToLines() -> [Line] {
+        replaceDoubleEmptyLines()
+            .split(separator: NewLine._character)
+            .map { Line($0) }
+    }
         let final = NSMutableAttributedString(string: "")
         let doubleNextLine = nextLineCharacter.description + nextLineCharacter.description
         let allLines = replacingOccurrences(of:doubleNextLine, with: nextLineCharacter.description).getWords(separator: nextLineCharacter)
