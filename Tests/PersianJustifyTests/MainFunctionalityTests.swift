@@ -10,7 +10,6 @@ import XCTest
 
 #if canImport(UIKit)
 final class MainFunctionalityTests: XCTestCase {
-    
     func testMainFunctionIsGettingOutput() {
         let text1 = ""
         let text2 = "blah blah"
@@ -62,7 +61,6 @@ final class MainFunctionalityTests: XCTestCase {
 #endif
 
 private extension String {
-    
     func getNextLineCount()-> Int {
         return filter({$0 == "\n"}).count
     }
