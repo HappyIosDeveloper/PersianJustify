@@ -13,13 +13,26 @@ import AppKit
 
 // MARK: - Usage using toPJString function
 extension String {
-    
+    /// Method that will layout words in a `Farsi` calligraphy friendly way.
+    /// - Parameter view: Ancestor view that string will be displayed in.
+    /// - Warning: This is a computed heavy operation.
     public func toPJString(in view: View) -> NSAttributedString {
-        let defaultAttributedTest = NSAttributedString(string: self)
-        //                return defaultAttributedTest // MARK: Uncomment to see the unjustified text
-        if isEmpty { return defaultAttributedTest }
-        let defaultFont = Font()
-        let font = view.getFont() ?? defaultFont
+        guard !isEmpty else {
+            return NSAttributedString()
+        }
+
+        let lines = splitStringToLines()
+
+        let viewWidth = view.frame.width
+
+        let font: Font = {
+            lazy var defaultFont = Font()
+            return view.getFont() ?? defaultFont
+        }()
+
+        return justify(lines, in: viewWidth, with: font)
+    }
+
     private func splitStringToLines() -> [Line] {
         replaceDoubleEmptyLines()
             .split(separator: NewLine._character)
