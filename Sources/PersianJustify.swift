@@ -24,7 +24,20 @@ fileprivate let forbiddenExtendableCharacters = ["ا", "د", "ذ", "ر", "ز", "
 
 // MARK: - Usage using toPJString function
 extension String {
-    
+
+    @available(
+        *, deprecated,
+        renamed: "toPJString(fittingWidth:font:)",
+        message: "This method requires too much information and will not be available from v1.0"
+    )
+    public func toPJString(in view: View) -> NSAttributedString {
+        let defaultFont = Font()
+        let font = view.getFont() ?? defaultFont
+        let parentWidth = getTotalWidth(in: view)
+
+        return toPJString(fittingWidth: parentWidth, font: font)
+    }
+
     public func toPJString(fittingWidth parentWidth: CGFloat, font: Font = Font()) -> NSAttributedString {
         let defaultAttributedTest = NSAttributedString(string: self)
         //                return defaultAttributedTest // MARK: Uncomment to see the unjustified text
