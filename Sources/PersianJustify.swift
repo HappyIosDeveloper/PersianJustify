@@ -101,9 +101,6 @@ extension String {
 
         return final
     }
-    
-    func joinWithSpace() -> String {
-        return joined(separator: spaceCharacter.description)
     }
 }
 
