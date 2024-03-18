@@ -10,12 +10,8 @@ extension String {
     public func toPJString(in view: View) -> NSAttributedString {
         let defaultFont = Font()
         let font = view.getFont() ?? defaultFont
-        let parentWidth = getTotalWidth(in: view)
+        let parentWidth = view.frame.width
 
         return toPJString(fittingWidth: parentWidth, font: font)
-    }
-
-    func getTotalWidth(in view: View) -> CGFloat {
-        return view.frame.width
     }
 }
