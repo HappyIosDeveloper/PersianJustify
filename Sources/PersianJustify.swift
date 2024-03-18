@@ -94,10 +94,6 @@ extension String {
             }
 
     
-    func getRange(of word: String) -> NSRange {
-        return (self as NSString).range(of: word, options: .widthInsensitive)
-    }
-    
     func isSupportExtender() -> Bool {
         guard count > 1 else { return false }
         let array = Array(self)
