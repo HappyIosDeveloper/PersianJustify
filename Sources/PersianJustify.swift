@@ -94,17 +94,6 @@ extension String {
             }
 
     
-    func getWordWidth(font: Font, isRequiredSpace: Bool = true) -> CGFloat {
-        let text = isRequiredSpace ? (self + spaceCharacter.description) : self
-        let attributedString = NSAttributedString(string: text, attributes: [.font: font])
-        let line = CTLineCreateWithAttributedString(attributedString)
-        var ascent: CGFloat = 0
-        var descent: CGFloat = 0
-        var leading: CGFloat = 0
-        let width = CTLineGetTypographicBounds(line, &ascent, &descent, &leading)
-        return CGFloat(width)
-    }
-    
     func getRange(of word: String) -> NSRange {
         return (self as NSString).range(of: word, options: .widthInsensitive)
     }
