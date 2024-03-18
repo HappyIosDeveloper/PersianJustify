@@ -25,16 +25,13 @@ fileprivate let forbiddenExtendableCharacters = ["ا", "د", "ذ", "ر", "ز", "
 // MARK: - Usage using toPJString function
 extension String {
     
-    public func toPJString(in view: View) -> NSAttributedString {
+    public func toPJString(fittingWidth parentWidth: CGFloat, font: Font = Font()) -> NSAttributedString {
         let defaultAttributedTest = NSAttributedString(string: self)
         //                return defaultAttributedTest // MARK: Uncomment to see the unjustified text
         if isEmpty { return defaultAttributedTest }
-        let defaultFont = Font()
-        let font = view.getFont() ?? defaultFont
         let final = NSMutableAttributedString(string: "")
         let doubleNextLine = nextLineCharacter.description + nextLineCharacter.description
         let allLines = replacingOccurrences(of:doubleNextLine, with: nextLineCharacter.description).getWords(separator: nextLineCharacter)
-        let parentWidth = getTotalWidth(in: view)
         for i in 0..<allLines.count {
             let words = allLines[i].split(separator: spaceCharacter).compactMap({$0.description})
             var currentLineWords: [String] = []
