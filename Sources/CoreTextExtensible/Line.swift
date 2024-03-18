@@ -54,7 +54,7 @@ struct Line {
             return Swift.max(extractedExpr, 0)
         }()
 
-        let supportedExtenderWords = words.filter { $0.canSupportExtender() }
+        let supportedExtenderWords = words.filter { $0.canSupportExtender }
 
         if isLastLineInParagraph {
             // May not required justify.

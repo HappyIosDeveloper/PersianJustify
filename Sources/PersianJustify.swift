@@ -65,7 +65,7 @@ extension String {
                 let canAddNewWord: Bool = {
                     let lineHasRoomForNextWord = currentLineWords.hasRoomForNextWord(
                         nextWord: word,
-                        parentWidth: proposedWidth,
+                        proposedWidth: proposedWidth,
                         font: font
                     )
 
