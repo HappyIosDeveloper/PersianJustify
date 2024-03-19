@@ -1,5 +1,6 @@
 // Based on the Example project
 
+#if canImport(UIKit)
 import UIKit
 import PersianJustify
 
@@ -118,3 +119,4 @@ extension UIView {
         layer.borderColor = UIColor.red.cgColor
     }
 }
+#endif
