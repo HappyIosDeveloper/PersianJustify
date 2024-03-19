@@ -3,7 +3,6 @@ import FontBlaster
 import SnapshotTesting
 @testable import PersianJustify
 
-#if canImport(UIKit)
 final class SnapshotTests: XCTestCase {
     override class func setUp() {
         FontBlaster.blast(bundle: .test)
@@ -14,10 +13,11 @@ final class SnapshotTests: XCTestCase {
         XCTAssertFalse(fonts.isEmpty)
     }
 
+    #if canImport(UIKit)
     func testSampleViewController() throws {
         let sut = SampleViewController()
 
         assertSnapshot(of: sut, as: .image(size: CGSize(width: 360, height: 780)))
     }
+    #endif
 }
-#endif
