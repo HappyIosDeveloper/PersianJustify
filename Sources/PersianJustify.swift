@@ -16,21 +16,14 @@ extension String {
     /// Method that will layout words in a `Farsi` calligraphy friendly way.
     /// - Parameter view: Ancestor view that string will be displayed in.
     /// - Warning: This is a computed heavy operation.
-    public func toPJString(in view: View) -> NSAttributedString {
+    public func toPJString(fittingWidth proposedWidth: CGFloat, font: Font = Font()) -> NSAttributedString {
         guard !isEmpty else {
             return NSAttributedString()
         }
 
         let lines = splitStringToLines()
 
-        let viewWidth = view.frame.width
-
-        let font: Font = {
-            lazy var defaultFont = Font()
-            return view.getFont() ?? defaultFont
-        }()
-
-        return justify(lines, in: viewWidth, with: font)
+        return justify(lines, in: proposedWidth, with: font)
     }
 
     private func splitStringToLines() -> [Line] {
