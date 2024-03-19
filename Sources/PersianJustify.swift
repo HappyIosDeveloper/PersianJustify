@@ -49,60 +49,58 @@ extension String {
     ) -> NSAttributedString {
         let final = NSMutableAttributedString(string: "")
 
-        lines.enumerated().forEach { index, line in
-            let words = line.getWords()
+        let (index, words) = linesProcessing(lines: lines)
 
-            var currentLineWords: [Word] = []
+        var currentLineWords: [Word] = []
 
-            words.forEach { word in
-                let canAddNewWord: Bool = {
-                    let lineHasRoomForNextWord = currentLineWords.hasRoomForNextWord(
-                        nextWord: word,
-                        proposedWidth: proposedWidth,
-                        font: font
-                    )
+        words.forEach { word in
+            let canAddNewWord: Bool = {
+                let lineHasRoomForNextWord = currentLineWords.hasRoomForNextWord(
+                    nextWord: word,
+                    proposedWidth: proposedWidth,
+                    font: font
+                )
 
-                    lazy var isLineEmpty = currentLineWords.isEmpty
+                lazy var isLineEmpty = currentLineWords.isEmpty
 
-                    return lineHasRoomForNextWord || isLineEmpty
-                }()
+                return lineHasRoomForNextWord || isLineEmpty
+            }()
 
-                if canAddNewWord {
-                    currentLineWords.append(word)
-                } 
-                // Line is filled and is ready to justify
-                else {
-                    let justifiedLine = justifyLine(
-                        from: currentLineWords,
-                        in: proposedWidth,
-                        with: font,
-                        isLastLineInParagraph: false
-                    )
-
-                    // Appending space at the end
-                    justifiedLine.appendSpaceCharacter()
-
-                    final.append(justifiedLine)
-
-                    currentLineWords = [word]
-                }
+            if canAddNewWord {
+                currentLineWords.append(word)
             }
-
-            if !currentLineWords.isEmpty {
-                let extracted = justifyLine(
+            // Line is filled and is ready to justify
+            else {
+                let justifiedLine = justifyLine(
                     from: currentLineWords,
                     in: proposedWidth,
                     with: font,
-                    isLastLineInParagraph: true
+                    isLastLineInParagraph: false
                 )
 
-                final.append(extracted)
-            }
+                // Appending space at the end
+                justifiedLine.appendSpaceCharacter()
 
-            // To avoid add extra next line at the end of text
-            if index < lines.count-1 {
-                final.append(LineBreakCharacter.attributedStringRepresentation)
+                final.append(justifiedLine)
+
+                currentLineWords = [word]
             }
+        }
+
+        if !currentLineWords.isEmpty {
+            let extracted = justifyLine(
+                from: currentLineWords,
+                in: proposedWidth,
+                with: font,
+                isLastLineInParagraph: true
+            )
+
+            final.append(extracted)
+        }
+
+        // To avoid add extra next line at the end of text
+        if index < lines.count-1 {
+            final.append(LineBreakCharacter.attributedStringRepresentation)
         }
 
         return final
