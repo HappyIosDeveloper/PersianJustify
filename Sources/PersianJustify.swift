@@ -97,7 +97,7 @@ private extension String {
         let attributedText = NSMutableAttributedString(string: self)
         attributedText.setAttributes([NSAttributedString.Key.font: font], range: totalRange)
         for word in words {
-            let range = getRange(of: word)
+            let range = range(of: word, options: .widthInsensitive)
             attributedText.addAttribute(NSAttributedString.Key.kern, value: requiredExtend, range: range)
             attributedText.addAttributes([NSAttributedString.Key.paragraphStyle: style], range: range)
             print("applying extend | \(requiredExtend) to \(word)")
@@ -124,10 +124,6 @@ private extension String {
         var leading: CGFloat = 0
         let width = CTLineGetTypographicBounds(line, &ascent, &descent, &leading)
         return CGFloat(width)
-    }
-    
-    func getRange(of word: String) -> NSRange {
-        return (self as NSString).range(of: word, options: .widthInsensitive)
     }
     
     func isSupportExtender() -> Bool {
