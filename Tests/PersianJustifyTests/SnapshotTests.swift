@@ -5,7 +5,7 @@ import FontBlaster
 #if canImport(UIKit)
 final class SnapshotTests: XCTestCase {
     override class func setUp() {
-        FontBlaster.blast(bundle: Bundle(for: SnapshotTests.self))
+        FontBlaster.blast(bundle: .test)
     }
 
     func testFonts() {
