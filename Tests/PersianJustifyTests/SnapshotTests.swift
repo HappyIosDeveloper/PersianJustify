@@ -14,14 +14,15 @@ final class SnapshotTests: XCTestCase {
     }
 }
 
-    #if canImport(UIKit)
+#if canImport(UIKit)
+extension SnapshotTests {
     func testSampleViewController() throws {
         let sut = SampleViewController()
 
         assertSnapshot(of: sut, as: .image(size: CGSize(width: 360, height: 780)))
     }
-    #endif
 }
+#endif
 
 #if canImport(AppKit)
 extension SnapshotTests {
