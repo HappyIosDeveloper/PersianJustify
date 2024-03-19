@@ -13,6 +13,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/ArtSabintsev/FontBlaster", from: "5.3.0"),
+        .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.15.4"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -24,6 +25,7 @@ let package = Package(
             dependencies: [
                 "PersianJustify",
                 "FontBlaster",
+                .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
             ],
             resources: [.process("Resources")]
         ),

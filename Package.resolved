@@ -1,5 +1,5 @@
 {
-  "originHash" : "d45eeeabb1fbd9f84f0de207eb51c6ab90d936ef521ffde84983cd724a35a59d",
+  "originHash" : "16e229f7bd63f7a4767c2e2f27912c9e48e21f700096101c3b1a0705112a599f",
   "pins" : [
     {
       "identity" : "fontblaster",
@@ -8,6 +8,24 @@
       "state" : {
         "revision" : "09fffe9cf20293fce81ce7154b46f8e60291baa8",
         "version" : "5.3.0"
+      }
+    },
+    {
+      "identity" : "swift-snapshot-testing",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-snapshot-testing",
+      "state" : {
+        "revision" : "5b0c434778f2c1a4c9b5ebdb8682b28e84dd69bd",
+        "version" : "1.15.4"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax",
+      "state" : {
+        "revision" : "fa8f95c2d536d6620cc2f504ebe8a6167c9fc2dd",
+        "version" : "510.0.1"
       }
     }
   ],
