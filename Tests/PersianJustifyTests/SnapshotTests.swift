@@ -33,7 +33,7 @@ extension SnapshotTests {
             sut.numberOfLines = 0
             sut.textColor = .black
 
-            assertSnapshot(of: sut, as: .image(size: CGSize(width: width, height: 780)))
+            assertSnapshot(of: sut, as: .image(size: CGSize(width: width, height: 780)), record: true)
         }
     }
 }
@@ -49,7 +49,7 @@ extension SnapshotTests {
             let sut = NSTextField(labelWithAttributedString: justifiedText)
             sut.textColor = .black
 
-            assertSnapshot(of: sut, as: .image(size: CGSize(width: width, height: 780)))
+            assertSnapshot(of: sut, as: .image(size: CGSize(width: width, height: 780)), record: true)
         }
     }
 }
