@@ -58,6 +58,7 @@ class SampleViewController: UIViewController {
         setupRTLDirection()
         setFont(name: .paeez)
         fillLabels()
+        setColor(.black)
     }
 }
 
@@ -100,6 +101,13 @@ extension SampleViewController {
         fullWidthLabel2.font = UIFont(name: name.rawValue, size: 17)
         halfWidthLabel1.font = UIFont(name: name.rawValue, size: 17)
         halfWidthLabel2.font = UIFont(name: name.rawValue, size: 17)
+    }
+
+    func setColor(_ color: UIColor) {
+        fullWidthLabel1.textColor = color
+        fullWidthLabel2.textColor = color
+        halfWidthLabel1.textColor = color
+        halfWidthLabel2.textColor = color
     }
 }
 
