@@ -22,6 +22,20 @@ extension SnapshotTests {
         // MARK: Temporary commented due to being failed all the time.
 //        assertSnapshot(of: sut, as: .image(size: CGSize(width: 360, height: 780)))
     }
+
+    func testLongMultilineTextOnUILabel() throws {
+        let width: CGFloat = 360
+        for fontName in FontBlaster.loadedFonts {
+            let font = try XCTUnwrap(Font(name: fontName, size: 17))
+            let justifiedText = shortDemoText.toPJString(fittingWidth: width, font: font)
+            let sut = UILabel()
+            sut.attributedText = justifiedText
+            sut.numberOfLines = 0
+            sut.textColor = .black
+
+            assertSnapshot(of: sut, as: .image(size: CGSize(width: width, height: 780)))
+        }
+    }
 }
 #endif
 
