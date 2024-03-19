@@ -83,10 +83,12 @@ extension SampleViewController {
     }
     
     func fillLabels() {
-        fullWidthLabel1.attributedText = text1.toPJString(in: fullWidthLabel1)
-        fullWidthLabel2.attributedText = text2.toPJString(in: fullWidthLabel1)
-        halfWidthLabel1.attributedText = text1.toPJString(in: halfWidthLabel1)
-        halfWidthLabel2.attributedText = text2.toPJString(in: halfWidthLabel2)
+        let font = fullWidthLabel1.font!
+        let width = view.bounds.width
+        fullWidthLabel1.attributedText = text1.toPJString(fittingWidth: width, font: font)
+        fullWidthLabel2.attributedText = text2.toPJString(fittingWidth: width, font: font)
+        halfWidthLabel1.attributedText = text1.toPJString(fittingWidth: width, font: font)
+        halfWidthLabel2.attributedText = text2.toPJString(fittingWidth: width, font: font)
         fullWidthLabel1.sizeToFit()
         fullWidthLabel2.sizeToFit()
         halfWidthLabel1.sizeToFit()
