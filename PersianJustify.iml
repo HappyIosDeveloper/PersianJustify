@@ -1,0 +1,16 @@
+<configuration>
+    <module org.jetbrains.kotlin.idea.devkit.IdeaModule>
+        <configuration>
+            <testingContent url="file://$MODULE_DIR$"/>
+            <sourceContent url="file://$MODULE_DIR$/src"/>
+            <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false"/>
+            <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true"/>
+            <jbModulePath>
+                <path>
+                    ...
+                </path>
+            </jbModulePath>
+            <jdkName value="Swift-5.10.0"/>
+        </configuration>
+    </module>
+</configuration>
