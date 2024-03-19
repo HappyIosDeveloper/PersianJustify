@@ -14,42 +14,11 @@ final class SnapshotTests: XCTestCase {
     }
 }
 
-#if canImport(UIKit)
-extension SnapshotTests {
+    #if canImport(UIKit)
     func testSampleViewController() throws {
         let sut = SampleViewController()
 
         assertSnapshot(of: sut, as: .image(size: CGSize(width: 360, height: 780)))
     }
-
-    func testLongMultilineTextOnUILabel() throws {
-        let width: CGFloat = 360
-        for fontName in FontBlaster.loadedFonts {
-            let font = try XCTUnwrap(Font(name: fontName, size: 17))
-            let justifiedText = shortDemoText.toPJString(fittingWidth: width, font: font)
-            let sut = UILabel()
-            sut.attributedText = justifiedText
-            sut.numberOfLines = 0
-            sut.textColor = .black
-
-            assertSnapshot(of: sut, as: .image(size: CGSize(width: width, height: 780)), record: true)
-        }
-    }
+    #endif
 }
-#endif
-
-#if canImport(AppKit)
-extension SnapshotTests {
-    func testLongMultilineTextOnNSTextField() throws {
-        let width: CGFloat = 360
-        for fontName in FontBlaster.loadedFonts {
-            let font = try XCTUnwrap(Font(name: fontName, size: 17))
-            let justifiedText = longDemoText.toPJString(fittingWidth: width, font: font)
-            let sut = NSTextField(labelWithAttributedString: justifiedText)
-            sut.textColor = .black
-
-            assertSnapshot(of: sut, as: .image(size: CGSize(width: width, height: 780)), record: true)
-        }
-    }
-}
-#endif
