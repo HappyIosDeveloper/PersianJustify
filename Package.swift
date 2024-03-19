@@ -18,6 +18,10 @@ let package = Package(
             name: "PersianJustify"),
         .testTarget(
             name: "PersianJustifyTests",
-            dependencies: ["PersianJustify"]),
+            dependencies: [
+                "PersianJustify",
+            ],
+            resources: [.process("Resources")]
+        ),
     ]
 )
