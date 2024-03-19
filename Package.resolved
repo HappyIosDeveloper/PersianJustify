@@ -1,0 +1,15 @@
+{
+  "originHash" : "d45eeeabb1fbd9f84f0de207eb51c6ab90d936ef521ffde84983cd724a35a59d",
+  "pins" : [
+    {
+      "identity" : "fontblaster",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ArtSabintsev/FontBlaster",
+      "state" : {
+        "revision" : "09fffe9cf20293fce81ce7154b46f8e60291baa8",
+        "version" : "5.3.0"
+      }
+    }
+  ],
+  "version" : 3
+}
