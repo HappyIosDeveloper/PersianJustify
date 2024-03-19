@@ -17,13 +17,13 @@ final class MainFunctionalityTests: XCTestCase {
         let text3 = "السلام اللعیکم\nو رحمت الله و برکاتو"
         
         let sut = UILabel()
-        sut.attributedText = text1.toPJString(in: sut)
+        sut.attributedText = text1.toPJString(fittingWidth: sut.bounds.width, font: sut.font)
         XCTAssertEqual(sut.attributedText?.string.count, text1.count)
         
-        sut.attributedText = text2.toPJString(in: sut)
+        sut.attributedText = text2.toPJString(fittingWidth: sut.bounds.width, font: sut.font)
         XCTAssertEqual(sut.attributedText?.string.count, text2.count)
         
-        sut.attributedText = text3.toPJString(in: sut)
+        sut.attributedText = text3.toPJString(fittingWidth: sut.bounds.width, font: sut.font)
         XCTAssertEqual(sut.attributedText?.string.count, text3.count)
     }
     
@@ -33,13 +33,13 @@ final class MainFunctionalityTests: XCTestCase {
         let threeEnters = "a\na\na\na"
         
         let sut = UILabel()
-        sut.attributedText = noEnter.toPJString(in: sut)
+        sut.attributedText = noEnter.toPJString(fittingWidth: sut.bounds.width, font: sut.font)
         XCTAssertEqual(sut.attributedText?.string.getNextLineCount(), noEnter.getNextLineCount())
         
-        sut.attributedText = twoEnters.toPJString(in: sut)
+        sut.attributedText = twoEnters.toPJString(fittingWidth: sut.bounds.width, font: sut.font)
         XCTAssertEqual(sut.attributedText?.string.getNextLineCount(), twoEnters.getNextLineCount())
         
-        sut.attributedText = threeEnters.toPJString(in: sut)
+        sut.attributedText = threeEnters.toPJString(fittingWidth: sut.bounds.width, font: sut.font)
         XCTAssertEqual(sut.attributedText?.string.getNextLineCount(), threeEnters.getNextLineCount())
     }
     
@@ -49,13 +49,13 @@ final class MainFunctionalityTests: XCTestCase {
         let threeSpaces = "a a a a"
         
         let sut = UILabel()
-        sut.attributedText = noSpace.toPJString(in: sut)
+        sut.attributedText = noSpace.toPJString(fittingWidth: sut.bounds.width, font: sut.font)
         XCTAssertEqual(sut.attributedText?.string.getSpaceCount(), noSpace.getSpaceCount())
         
-        sut.attributedText = twoSpaces.toPJString(in: sut)
+        sut.attributedText = twoSpaces.toPJString(fittingWidth: sut.bounds.width, font: sut.font)
         XCTAssertEqual(sut.attributedText?.string.getSpaceCount(), twoSpaces.getSpaceCount())
         
-        sut.attributedText = threeSpaces.toPJString(in: sut)
+        sut.attributedText = threeSpaces.toPJString(fittingWidth: sut.bounds.width, font: sut.font)
         XCTAssertEqual(sut.attributedText?.string.getSpaceCount(), threeSpaces.getSpaceCount())
     }
 }
