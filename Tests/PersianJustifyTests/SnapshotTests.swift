@@ -21,3 +21,19 @@ final class SnapshotTests: XCTestCase {
     }
     #endif
 }
+
+#if canImport(AppKit)
+extension SnapshotTests {
+    func testLongMultilineTextOnNSTextField() throws {
+        let width: CGFloat = 360
+        for fontName in FontBlaster.loadedFonts {
+            let font = try XCTUnwrap(Font(name: fontName, size: 17))
+            let justifiedText = longDemoText.toPJString(fittingWidth: width, font: font)
+            let sut = NSTextField(labelWithAttributedString: justifiedText)
+            sut.textColor = .black
+
+            assertSnapshot(of: sut, as: .image(size: CGSize(width: width, height: 780)))
+        }
+    }
+}
+#endif
