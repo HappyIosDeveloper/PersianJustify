@@ -75,7 +75,7 @@ extension SampleViewController {
         halfWidthLabel1.numberOfLines = 0
         halfWidthLabel2.numberOfLines = 0
     }
-    
+
     func fillLabels() {
         let font = fullWidthLabel1.font!
         let width = view.bounds.width
@@ -88,14 +88,7 @@ extension SampleViewController {
         halfWidthLabel1.sizeToFit()
         halfWidthLabel2.sizeToFit()
     }
-    
-    func addBorder() {
-        fullWidthLabel1.addBorder()
-        fullWidthLabel2.addBorder()
-        halfWidthLabel1.addBorder()
-        halfWidthLabel2.addBorder()
-    }
-    
+
     func setFont(name: FontNames) {
         fullWidthLabel1.font = UIFont(name: name.rawValue, size: 17)
         fullWidthLabel2.font = UIFont(name: name.rawValue, size: 17)
@@ -108,15 +101,6 @@ extension SampleViewController {
         fullWidthLabel2.textColor = color
         halfWidthLabel1.textColor = color
         halfWidthLabel2.textColor = color
-    }
-}
-
-// MARK: - UIView Extensions
-extension UIView {
-    
-    func addBorder() {
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.red.cgColor
     }
 }
 #endif
