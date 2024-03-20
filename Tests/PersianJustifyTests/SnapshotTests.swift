@@ -48,7 +48,11 @@ extension SnapshotTests {
             let sut = NSTextField(labelWithAttributedString: justifiedText)
             sut.textColor = .black
 
-            assertSnapshot(of: sut, as: .image(size: CGSize(width: width, height: 780)), record: true)
+            assertSnapshot(
+                of: sut,
+                as: .image(size: CGSize(width: width, height: 780)),
+                named: "Font:\(fontName)"
+            )
         }
     }
 }
