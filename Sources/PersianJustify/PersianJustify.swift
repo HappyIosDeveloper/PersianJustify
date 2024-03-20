@@ -71,7 +71,7 @@ private extension String {
         print("totalWordsWidth \(totalWordsWidth)")
         print("emptySpace: \(emptySpace)")
         if isLastLineInParagraph { // MARK: May not required justify.
-            return .init(attributedString: NSAttributedString(string: self))
+            return attributedStringWithFont(font: font)
         } else {
             let isManyExtendersRequired = CGFloat(supportedExtenderWords.count) < requiredExtender
             if isManyExtendersRequired {
@@ -83,7 +83,7 @@ private extension String {
                 return getExtendedWords(words: supportedExtenderWords, requiredExtend: max(requiredExtender * 0.1, 0), font: font)
             } else {
                 print("no extender added")
-                return NSMutableAttributedString(attributedString: NSAttributedString(string: self))
+                return attributedStringWithFont(font: font)
             }
         }
     }
@@ -93,9 +93,7 @@ private extension String {
         let style = NSMutableParagraphStyle()
         style.alignment = NSTextAlignment.justified
         style.baseWritingDirection = .rightToLeft
-        let totalRange = NSRange(location: 0, length: self.utf16.count)
-        let attributedText = NSMutableAttributedString(string: self)
-        attributedText.setAttributes([NSAttributedString.Key.font: font], range: totalRange)
+        let attributedText = attributedStringWithFont(font: font)
         for word in words {
             let range = range(of: word, options: .widthInsensitive)
             attributedText.addAttribute(NSAttributedString.Key.kern, value: requiredExtend, range: range)
@@ -103,6 +101,13 @@ private extension String {
             print("applying extend | \(requiredExtend) to \(word)")
         }
         print("------------------------------------------")
+        return attributedText
+    }
+
+    func attributedStringWithFont(font: Font)-> NSMutableAttributedString {
+        let totalRange = NSRange(location: 0, length: self.utf16.count)
+        let attributedText = NSMutableAttributedString(string: self)
+        attributedText.setAttributes([NSAttributedString.Key.font: font], range: totalRange)
         return attributedText
     }
     
