@@ -6,7 +6,7 @@
 
 <img src="Previews/Logo.png" alt="Image 1">
 
-<img src="https://img.shields.io/badge/Swift_Package_Manager-compatible-green?style=flat-round"> <img src="https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20tvOS-green?style=flat-round"> <img src="https://img.shields.io/badge/Swift-%20+4.0-orange?style=flat-round"> <img src="https://img.shields.io/badge/license-MIT-black?style=flat-round">
+<img src="https://img.shields.io/badge/Swift_Package_Manager-compatible-green?style=flat-round"> <img src="https://img.shields.io/badge/Platforms-iOS%20|%20macOS%20|%20tvOS-green?style=flat-round"> <img src="https://img.shields.io/badge/Swift-%20+4.0-orange?style=flat-round"> <img src="https://img.shields.io/badge/license-MIT-black?style=flat-round"> [![Automation Test](https://github.com/HappyIosDeveloper/PersianJustify/actions/workflows/swift.yml/badge.svg)](https://github.com/HappyIosDeveloper/PersianJustify/actions/workflows/swift.yml)
 | ⬇️ | ⬇️ |
 | --- | --- |
 |<img src="Previews/custom_font_1_preview.jpg" height="650" width="300">|<img src="Previews/original_font_preview.jpg" height="650" width="300">|
