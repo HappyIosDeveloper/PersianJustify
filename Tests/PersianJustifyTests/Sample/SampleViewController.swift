@@ -11,10 +11,7 @@ class SampleViewController: UIViewController {
     var halfWidthLabel1 = UILabel()
     var halfWidthLabel2 = UILabel()
 
-    override func loadView() {
-        super.loadView()
-        defer { viewDidLoad() }
-
+    private func setup() {
         /// Add views
         let scrollView = UIScrollView(frame: view.frame)
         view.addSubview(scrollView)
@@ -42,8 +39,18 @@ class SampleViewController: UIViewController {
         verticalStack.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: 0).isActive = true
         verticalStack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0).isActive = true
         verticalStack.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0).isActive = true
+
+        setupRTLDirection()
+        setFont(name: .paeez)
+        fillLabels()
+        setColor(.black)
     }
-    
+
+    override func loadView() {
+        super.loadView()
+        setup()
+    }
+
     enum FontNames: String {
         case khodkar = "B Titr Bold"
         case dastNevis = "Dast Nevis"
@@ -51,14 +58,6 @@ class SampleViewController: UIViewController {
         case shahgoosh = "shahgosh"
         case shokuh = "Shokoh Bold"
         case yekan = "MT_Yekan Square Boom Bold"
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupRTLDirection()
-        setFont(name: .paeez)
-        fillLabels()
-        setColor(.black)
     }
 }
 
