@@ -31,8 +31,12 @@ extension SnapshotTests {
             sut.attributedText = justifiedText
             sut.numberOfLines = 0
             sut.textColor = .black
-
-            assertSnapshot(of: sut, as: .image(size: CGSize(width: width, height: 780)), record: true)
+            sut.attributedText = justifiedText
+            assertSnapshot(
+                of: sut,
+                as: .image(size: CGSize(width: width, height: 780)),
+                named: "Font:\(fontName)"
+            )
         }
     }
 }
