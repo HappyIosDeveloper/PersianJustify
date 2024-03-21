@@ -121,3 +121,20 @@ extension String {
             )
     }
 }
+public enum PersianJustifyFailure: LocalizedError {
+    /// Failure to get font from the given view.
+    case getFont(View)
+
+    /// Failure to get text from the given view.
+    case getText(View)
+
+    public var errorDescription: String? {
+        switch self {
+            case let .getFont(view):
+                return "Failure to get font from \(view)"
+
+            case let .getText(view):
+                return "Failure to get text from the \(view)"
+        }
+    }
+}
