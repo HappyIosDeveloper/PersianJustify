@@ -14,7 +14,7 @@ final class MeasurementTests: XCTestCase {
             let fittingWidth = sut.frame.width
 
             texts.forEach { text in
-                sut.attributedText = text.toPJString(fittingWidth: fittingWidth)
+                sut.attributedText = text.toPJString(fittingWidth: fittingWidth, font: sut.font)
             }
         }
     }
