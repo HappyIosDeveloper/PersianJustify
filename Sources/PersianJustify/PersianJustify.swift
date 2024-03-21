@@ -174,10 +174,10 @@ public enum PersianJustifyFailure: LocalizedError {
     public var errorDescription: String? {
         switch self {
             case let .getFont(view):
-                return "Failure to get font from \(view)"
+                return "Failure to get font from \(view.debugDescription)"
 
             case let .getText(view):
-                return "Failure to get text from the \(view)"
+                return "Failure to get text from the \(view.debugDescription)"
         }
     }
 }
