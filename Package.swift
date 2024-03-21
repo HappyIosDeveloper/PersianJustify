@@ -17,7 +17,8 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "PersianJustify"
+            name: "PersianJustify",
+            path: "Sources"
         ),
         .testTarget(
             name: "PersianJustifyTests",
