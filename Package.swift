@@ -27,6 +27,7 @@ let package = Package(
                 "FontBlaster",
                 .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
             ],
+            exclude: ["SnapshotTests/__Snapshots__"],
             resources: [.process("Resources")]
         ),
     ]
