@@ -14,7 +14,7 @@ import AppKit
 extension String {
     /// Method that will layouts string in a `Farsi` calligraphy friendly way.
     /// - Warning: This is a computed heavy operation.
-    public func toPJString(fittingWidth proposedWidth: CGFloat, font: Font = Font()) -> NSAttributedString {
+    public func toPJString(fittingWidth proposedWidth: CGFloat, font: Font) -> NSAttributedString {
         guard !isEmpty else {
             return NSAttributedString()
         }
