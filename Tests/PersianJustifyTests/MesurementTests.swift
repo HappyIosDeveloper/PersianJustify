@@ -4,16 +4,18 @@ import XCTest
 final class MeasurementTests: XCTestCase {
     func testPerformance() throws {
         self.measure(metrics: [XCTCPUMetric(), XCTMemoryMetric()]) {
-            let text1 = ""
-            let text2 = "blah blah"
-            let text3 = "السلام اللعیکم\nو رحمت الله و برکاتو"
+            let texts = [
+                "",
+                "blah blah",
+                "السلام اللعیکم\nو رحمت الله و برکاتو"
+            ]
 
             let sut = UILabel()
-            sut.attributedText = text1.toPJString(in: sut)
+            let fittingWidth = sut.frame.width
 
-            sut.attributedText = text2.toPJString(in: sut)
-
-            sut.attributedText = text3.toPJString(in: sut)
+            texts.forEach { text in
+                sut.attributedText = text.toPJString(fittingWidth: fittingWidth)
+            }
         }
     }
 }
@@ -23,16 +25,18 @@ final class MeasurementTests: XCTestCase {
 final class MeasurementTests: XCTestCase {
     func testPerformance() throws {
         self.measure(metrics: [XCTCPUMetric(), XCTMemoryMetric()]) {
-            let text1 = ""
-            let text2 = "blah blah"
-            let text3 = "السلام اللعیکم\nو رحمت الله و برکاتو"
+            let texts = [
+                "",
+                "blah blah",
+                "السلام اللعیکم\nو رحمت الله و برکاتو"
+            ]
 
             let sut = NSTextView()
-            sut.textStorage?.append(text1.toPJString(in: sut))
+            let fittingWidth = sut.frame.width
 
-            sut.textStorage?.append(text2.toPJString(in: sut))
-
-            sut.textStorage?.append(text3.toPJString(in: sut))
+            texts.forEach { text in
+                sut.textStorage?.append(text.toPJString(fittingWidth: fittingWidth, font: sut.font!))
+            }
         }
     }
 }
