@@ -11,7 +11,6 @@ import UIKit
 import AppKit
 #endif
 
-// MARK: - Usage using toPJString function
 extension String {
     /// Method that will layout words in a `Farsi` calligraphy friendly way.
     /// - Parameter view: Ancestor view that string will be displayed in.
