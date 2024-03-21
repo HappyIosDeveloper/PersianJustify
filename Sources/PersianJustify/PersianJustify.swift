@@ -121,6 +121,47 @@ extension String {
             )
     }
 }
+
+#if canImport(UIKit)
+extension Label {
+    /// Method that will layouts text in a `Farsi` calligraphy friendly way.
+    /// - Warning: This is a computed heavy operation.
+    public func toPJString(idealWidth: CGFloat? = nil) throws {
+        guard let text else {
+            throw PersianJustifyFailure.getText(self)
+        }
+        
+        guard let font else {
+            throw PersianJustifyFailure.getFont(self)
+        }
+
+        let proposedWidth = idealWidth ?? frame.width
+
+        let realignedText = text.toPJString(fittingWidth: proposedWidth, font: font)
+
+        attributedText = realignedText
+    }
+}
+#elseif canImport(AppKit)
+extension Label {
+    /// Method that will layouts text in a `Farsi` calligraphy friendly way.
+    /// - Warning: This is a computed heavy operation.
+    public func toPJString(idealWidth: CGFloat? = nil) throws {
+        let text = string
+
+        guard let font else {
+            throw PersianJustifyFailure.getFont
+        }
+
+        let proposedWidth = idealWidth ?? frame.width
+
+        let realignedText = text.toPJString(fittingWidth: proposedWidth, font: font)
+
+        textStorage?.append(realignedText)
+    }
+}
+#endif
+
 public enum PersianJustifyFailure: LocalizedError {
     /// Failure to get font from the given view.
     case getFont(View)
