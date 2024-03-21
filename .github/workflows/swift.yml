@@ -12,11 +12,18 @@ on:
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: macos-14
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build
-      run: swift build -v
-    - name: Run tests with release configurations
-      run: swift test -v -c release
+    - uses: actions/checkout@v4
+    - uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: '15.2'
+    - name: Build with the release configurations
+      run: swift build -c release -v
+    - name: Tests on iPhone 15 Pro (iOS 17.2) Simulator with release configurations
+      run: xcodebuild 
+           -scheme 'PersianJustify' 
+           -sdk iphonesimulator 
+           -destination 'platform=iOS Simulator,name=iPhone 15 Pro,OS=17.2' 
+           test
