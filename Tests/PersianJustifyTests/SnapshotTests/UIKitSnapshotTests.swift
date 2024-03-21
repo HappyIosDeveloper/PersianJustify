@@ -29,7 +29,6 @@ final class UIKitSnapshotTests: XCTestCase {
             sut.attributedText = justifiedText
             sut.numberOfLines = 0
             sut.textColor = .black
-            sut.attributedText = justifiedText
             assertSnapshot(
                 of: sut,
                 as: .image(size: CGSize(width: width, height: 780)),
