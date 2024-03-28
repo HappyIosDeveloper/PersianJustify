@@ -14,13 +14,13 @@ import AppKit
 import CoreText
 
 // MARK: - Variables
-fileprivate let nextLineCharacter: Character = "\n"
-fileprivate let spaceCharacter: Character = " "
-fileprivate let miniSpaceCharacter: Character = "‌"
-fileprivate let extenderCharacter: Character = "ـ" // Persian underline
-fileprivate let attributedSpace = NSAttributedString(string: spaceCharacter.description)
-fileprivate let attributedNextLine = NSMutableAttributedString(string: nextLineCharacter.description)
-fileprivate let forbiddenExtendableCharacters = ["ا", "د", "ذ", "ر", "ز", "و", "آ", "ژ"]
+private let nextLineCharacter: Character = "\n"
+private let spaceCharacter: Character = " "
+private let miniSpaceCharacter: Character = "‌"
+private let extenderCharacter: Character = "ـ" // Persian underline
+private let attributedSpace = NSAttributedString(string: spaceCharacter.description)
+private let attributedNextLine = NSMutableAttributedString(string: nextLineCharacter.description)
+private let forbiddenExtendableCharacters = ["ا", "د", "ذ", "ر", "ز", "و", "آ", "ژ"]
 
 // MARK: - Usage using toPJString function
 extension String {
@@ -31,7 +31,7 @@ extension String {
         if isEmpty { return defaultAttributedTest }
         let final = NSMutableAttributedString(string: "")
         let doubleNextLine = nextLineCharacter.description + nextLineCharacter.description
-        let allLines = replacingOccurrences(of:doubleNextLine, with: nextLineCharacter.description).getWords(separator: nextLineCharacter)
+        let allLines = replacingOccurrences(of: doubleNextLine, with: nextLineCharacter.description).getWords(separator: nextLineCharacter)
         for i in 0..<allLines.count {
             let words = allLines[i].split(separator: spaceCharacter).compactMap({$0.description})
             var currentLineWords: [String] = []
@@ -58,7 +58,7 @@ extension String {
 
 // MARK: - Private Functions
 private extension String {
-    
+
     func getJustifiedLine(in parentWidth: CGFloat, isLastLineInParagraph: Bool, font: Font) -> NSMutableAttributedString {
         let words = getWords(separator: spaceCharacter)
         let totalWordsWidth = words.compactMap({$0.getWordWidth(font: font)}).reduce(0, +)
@@ -87,7 +87,7 @@ private extension String {
             }
         }
     }
-    
+
     func getExtendedWords(words: [String], requiredExtend: CGFloat, font: Font) -> NSMutableAttributedString {
         print("------------------------------------------")
         let style = NSMutableParagraphStyle()
@@ -104,22 +104,22 @@ private extension String {
         return attributedText
     }
 
-    func attributedStringWithFont(font: Font)-> NSMutableAttributedString {
+    func attributedStringWithFont(font: Font) -> NSMutableAttributedString {
         let totalRange = NSRange(location: 0, length: self.utf16.count)
         let attributedText = NSMutableAttributedString(string: self)
         attributedText.setAttributes([NSAttributedString.Key.font: font], range: totalRange)
         return attributedText
     }
-    
+
     var isArabic: Bool {
         let predicate = NSPredicate(format: "SELF MATCHES %@", "(?s).*\\p{Arabic}.*")
         return predicate.evaluate(with: self)
     }
-    
+
     func getWords(separator: Character) -> [String] {
         return split(separator: separator).compactMap({$0.description})
     }
-    
+
     func getWordWidth(font: Font, isRequiredSpace: Bool = true) -> CGFloat {
         let text = isRequiredSpace ? (self + spaceCharacter.description) : self
         let attributedString = NSAttributedString(string: text, attributes: [.font: font])
@@ -130,7 +130,7 @@ private extension String {
         let width = CTLineGetTypographicBounds(line, &ascent, &descent, &leading)
         return CGFloat(width)
     }
-    
+
     func isSupportExtender() -> Bool {
         guard count > 1 else { return false }
         let array = Array(self)
@@ -146,15 +146,14 @@ private extension String {
 }
 
 private extension [String] {
-    
+
     func hasRoomForNextWord(nextWord: String, parentWidth: CGFloat, font: Font) -> Bool {
         let requiredWidth = nextWord.getWordWidth(font: font)
         let currentWidth = compactMap({$0.getWordWidth(font: font)}).reduce(0, +)
         return (currentWidth + requiredWidth) <= parentWidth
     }
-    
+
     func joinWithSpace() -> String {
         return joined(separator: spaceCharacter.description)
     }
 }
-
