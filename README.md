@@ -35,8 +35,8 @@ Navigate to the "Example" folder with finder and open the example project while 
 - It needs more tests.
 
 
-#### PS:
-##### I accept the helps to fix the bugs and improve the functionality with open arms.
+#### Code of conduct:
+##### I accept the helps to fix the bugs and improve the functionality with open arms, but please don't change the project structre and reconstruct evrything... if you like to do so, you can always fork it as you wish.
 
 
 ### Credits:
