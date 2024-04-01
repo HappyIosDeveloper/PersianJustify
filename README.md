@@ -27,6 +27,10 @@ yourLabel.attributedText = yourText.toPJString(in: yourLabel)
 Navigate to the "Example" folder with finder and open the example project while the main project is not open in XCode.
 
 
+### How it works?
+Simple - It breaks the words into lines base of the provided width and then justifies the lines individually using CoreText.
+<img src="Previews/Flowchart.jpg" alt="flowchart">
+
 
 ### Problems:
 - Not optimized (yet) and consumes a lot of energy.
