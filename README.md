@@ -29,6 +29,7 @@ Navigate to the "Example" folder with finder and open the example project while 
 
 ### How it works?
 Simple - It breaks the words into lines base of the provided width and then justifies the lines individually using CoreText.
+
 <img src="Previews/Flowchart.png" alt="flowchart">
 
 
