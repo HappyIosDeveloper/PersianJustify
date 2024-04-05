@@ -39,8 +39,21 @@ Simple - It breaks the words into lines base of the provided width and then just
 - It needs more tests.
 
 
-#### PS:
-##### I accept the helps to fix the bugs and improve the functionality with open arms.
+#### Contribution:
+##### I accept the helps to fix the bugs and improve the functionality with open arms, but please consider these conventions:
+- Don't change the project structure and reconstruct everything. 
+- To streamline the review process and make it easier to merge, consider breaking down the changes into smaller, more focused pull requests.
+- Each PR should be small in scope, addressing only one task (e.g., feature, refactor, documentation) to allow maintainers to choose what to merge and where.
+- Commits should follow a logical flow, making the commit history easy to follow and enabling project builds for each individual commit.
+- Avoid unnecessary back-and-forth commits (such as add -> delete -> add) that can occur during development.
+- Tests should pass locally and in continuous integration.
+- Code should adhere to linting and styling rules according to the repository's configuration.
+- Ensure that each PR includes clear and concise documentation explaining the changes made and any relevant context for reviewers.
+- Follow a consistent naming convention for branches, commits, and PR titles to facilitate navigation and understanding of the project's history.
+- Prioritize backward compatibility and consider the impact of changes on existing functionality, dependencies, and users.
+- Strive for simplicity and readability in code, favoring clarity and maintainability over complexity.
+- Maintain a clean and organized project structure, with clear separation of concerns and minimal coupling between components.
+- Foster an inclusive and respectful environment, welcoming contributions from developers of all backgrounds and skill levels.
 
 
 ### Credits:
