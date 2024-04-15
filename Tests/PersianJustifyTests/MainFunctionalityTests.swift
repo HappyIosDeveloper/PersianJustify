@@ -11,6 +11,13 @@ import XCTest
 #if canImport(UIKit)
 final class MainFunctionalityTests: XCTestCase {
     
+    func testPerformance() {
+        let sut = UILabel()
+        measure {
+            sut.attributedText = longDemoText.toPJString(fittingWidth: sut.bounds.width, font: sut.font)
+        }
+    }
+    
     func testMainFunctionIsGettingOutput() {
         let text1 = ""
         let text2 = "blah blah"
