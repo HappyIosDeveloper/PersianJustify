@@ -2,7 +2,7 @@
 
 # Persian Justify 
 
-### Not very efficient way to justify Hebrew languages in iOS using the Swift language and CoreText.
+Justify Hebrew languages in iOS using the Swift language and CoreText.
 
 <img src="Previews/Logo.png" alt="Image 1">
 
