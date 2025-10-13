@@ -11,7 +11,6 @@ extension String {
         let defaultFont = Font()
         let font = view.getFont() ?? defaultFont
         let parentWidth = view.frame.width
-
         return toPJString(fittingWidth: parentWidth, font: font)
     }
 }
