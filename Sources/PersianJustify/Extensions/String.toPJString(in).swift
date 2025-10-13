@@ -15,3 +15,15 @@ extension String {
         return toPJString(fittingWidth: parentWidth, font: font)
     }
 }
+
+extension UILabel {
+    
+    @available(iOS 26.0, *)
+    func fixDirectionForiOS26() {
+        if let traitOverrides = value(forKey: "traitOverrides") as? NSObject {
+            if traitOverrides.responds(to: NSSelectorFromString("setResolvesNaturalAlignmentWithBaseWritingDirection:")) {
+                traitOverrides.setValue(true, forKey: "resolvesNaturalAlignmentWithBaseWritingDirection")
+            }
+        }
+    }
+}

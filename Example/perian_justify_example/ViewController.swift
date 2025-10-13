@@ -53,6 +53,12 @@ extension ViewController {
         fullWidthLabel2.numberOfLines = 0
         halfWidthLabel1.numberOfLines = 0
         halfWidthLabel2.numberOfLines = 0
+        if #available(iOS 26.0, *) {
+            fullWidthLabel1.fixDirectionForiOS26()
+            fullWidthLabel2.fixDirectionForiOS26()
+            halfWidthLabel1.fixDirectionForiOS26()
+            halfWidthLabel2.fixDirectionForiOS26()
+        }
     }
     
     func fillLabels() {
