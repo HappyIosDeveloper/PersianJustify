@@ -1,4 +1,7 @@
+#if os(iOS)
 import UIKit
+#endif
+import Foundation
 
 extension String {
 
@@ -15,6 +18,7 @@ extension String {
     }
 }
 
+#if os(iOS)
 extension UILabel {
     
     @available(iOS 26.0, *)
@@ -26,3 +30,4 @@ extension UILabel {
         }
     }
 }
+#endif
